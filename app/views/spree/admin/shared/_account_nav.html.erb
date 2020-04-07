@@ -1,0 +1,68 @@
+<% if try_spree_current_user %>
+  <ul id="admin-nav-bar" class="nav align-items-center d-flex justify-content-end navbar-right">
+    <li>
+      <div class="dropdown navbar-right-dropdown">
+        <button id="store-button" type="button" data-toggle="dropdown" class="navbar-right-dropdown-toggle" aria-label="<%= Spree.t('nav_bar.show_user_menu')%>">
+          <%= inline_svg_tag('spree_backendx/shop-2.svg',
+                            class: 'd-none d-xl-inline-block',
+                            size: '36px*36px') %>
+
+          <%= inline_svg_tag('spree_backendx/shop-2.svg',
+                            class: 'd-xl-none',
+                            size: '27px*27px') %>
+        </button>
+
+        <div class="dropdown-menu dropdown-menu-right">
+          <div class="dropdown-item text-center" style="color:green">
+            <span><%= try_spree_current_user.email %></span>
+          </div>
+
+          <% if spree.respond_to? :root_path %>
+            <%= link_to spree.root_path, target: :blank, class: 'dropdown-item' do %>
+              <i class="glyphicon glyphicon-new-window"></i>
+              &nbsp;
+              <%= Spree.t(:back_to_store) %>
+            <% end %>
+          <% end %>
+
+          <% if can?(:manage, try_spree_current_user) %>
+            <%= link_to spree.edit_admin_user_path(try_spree_current_user), class: 'dropdown-item' do %>
+              <i class="glyphicon glyphicon-user"></i>
+              &nbsp;
+              <%= Spree.t(:account) %>
+            <% end %>
+          <% end %>
+
+          <% if defined?(spree_logout_path) %>
+            <%= link_to spree_logout_path, class: 'dropdown-item' do %>
+              <i class="glyphicon glyphicon-log-out"></i>
+              &nbsp;
+              <%= Spree.t(:logout) %>
+            <% end %>
+          <% end %>
+
+          <div class="dropdown-divider"></div>
+
+          <%= link_to 'http://guides.spreecommerce.org', target: :blank, class: 'dropdown-item' do %>
+              <i class="glyphicon glyphicon-info-sign"></i>
+            &nbsp;
+            <%= Spree.t(:help_center) %>
+          <% end %>
+
+          <%= link_to 'http://slack.spreecommerce.org', target: :blank, class: 'dropdown-item' do %>
+            <i class="glyphicon glyphicon-comment"></i>
+            &nbsp;
+            <%= Spree.t(:join_slack) %>
+          <% end %>
+
+          <%= link_to 'https://github.com/spree-contrib', target: :blank, class: 'dropdown-item' do %>
+            <i class="glyphicon glyphicon-download"></i>
+            &nbsp;
+            <%= Spree.t(:extensions_directory) %>
+          <% end %>
+        </div>
+
+      </div>
+    </li>
+  </ul>
+<% end %>
