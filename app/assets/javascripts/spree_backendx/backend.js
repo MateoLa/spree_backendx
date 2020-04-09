@@ -1,0 +1,1 @@
+//= require spree_backendx/mobile_navigation

@@ -9,5 +9,20 @@
 
 @import "spree/frontend/functions";
 
+@import "spree_backendx/views/icon";
+@import "spree_backendx/views/layouts/admin";
 @import "spree_backendx/views/shared/header";
+// @import "spree_backendx/views/shared/main_menu";
 @import "spree_backendx/views/shared/nav_bar";
+@import "spree_backendx/views/shared/mobile_navigation";
+
+
+#main-part {
+  margin-top: 0px;
+  @include media-breakpoint-up(sm) {
+  }
+}
+
+.sidebar {
+	margin-top: 0px;
+}

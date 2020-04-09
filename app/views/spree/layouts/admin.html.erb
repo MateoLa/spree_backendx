@@ -20,6 +20,7 @@
     <%# Header navbar                                   %>
     <%#-------------------------------------------------%>
     <%= render partial: 'spree/admin/shared/header' %>
+    <div id="overlay" class="overlay hide-on-esc"></div>
 
     <%#-------------------------------------------------%>
     <%# Main content                                    %>
@@ -31,18 +32,18 @@
         <%# Sidebar                                         %>
         <%#-------------------------------------------------%>
         <aside
-          class="<%= main_sidebar_classes %> sidebar position-fixed d-flex justify-content-between flex-column px-0"
+          class="d-none d-xl-flex h-100 <%= main_sidebar_classes %> sidebar position-fixed justify-content-between flex-column px-0"
           id="main-sidebar"
           data-hook="admin_tabs">
-          <%#= render partial: 'spree/admin/shared/main_menu' %>
+          <%= render partial: 'spree/admin/shared/main_menu' %>
 
-          <%#= render partial: 'spree/admin/shared/version' %>
+          <%= render partial: 'spree/admin/shared/version' %>
         </aside>
 
         <%#-------------------------------------------------%>
         <%# Content                                         %>
         <%#-------------------------------------------------%>
-        <main class="<%= main_part_classes %> main" id="main-part" role="main">
+        <main class="col-12 col-xl-10 offset-xl-2 main" id="main-part" role="main">
 
           <%#-------------------------------------------------%>
           <%# Content header (page title/actions)             %>

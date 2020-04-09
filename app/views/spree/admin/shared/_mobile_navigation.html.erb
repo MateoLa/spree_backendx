@@ -1,0 +1,115 @@
+<div class="position-fixed text-uppercase d-xl-none mobile-navigation">
+  <div class="d-flex align-items-center admin-header-spree" data-hook>
+    <div class="container-fluid admin-header-spree-fluid">
+      <div class="d-flex flex-nowrap align-items-center">
+        <div class="d-xl-none flex-grow-1">
+          <button id="mobile-navigation-back-button" aria-label="<%= Spree.t('nav_bar.go_to_previous_menu') %>">
+            <%= icon(name: 'arrow-right',
+                    classes: 'd-sm-none spree-icon-arrow spree-icon-arrow-left',
+                    width: 18,
+                    height: 18) %>
+            <%= icon(name: 'arrow-right',
+                    classes: 'd-none d-sm-inline spree-icon-arrow spree-icon-arrow-left',
+                    width: 17,
+                    height: 28) %>
+          </button>
+        </div>
+        <figure class="logo flex-grow-0 flex-xl-grow-1 order-xl-0 admin-header-spree-fluid-logo m-0">
+          <%= link_to(
+            image_tag(Spree::Config[:admin_interface_logo]),
+            spree.admin_path,
+            class: "logo") %>
+        </figure>
+        <div id="top-nav-bar-mobile" class="text-right flex-grow-1 admin-header-spree-fluid-secondary-navigation" data-hook>
+          <button id="mobile-navigation-close-button" aria-label="<%= Spree.t('nav_bar.close_menu') %>">
+            <%= icon(name: 'close',
+                    classes: 'd-sm-none',
+                    width: 17,
+                    height: 17) %>
+            <%= icon(name: 'close',
+                    classes: 'd-none d-sm-inline',
+                    width: 26,
+                    height: 26) %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="list-unstyled position-relative h-100 mobile-navigation-list">
+    <% if can? :admin, Spree::Order %>
+      <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
+        <%= link_to spree.admin_orders_url, class: "w-75" do %>
+          <%= content_tag(:span, nil, class: 'icon icon-shopping-cart') %>
+          <%= Spree.t(:orders, scope: [:admin, :tab]) %>
+        <% end %>      
+      </li>
+    <% end %>
+    
+    <% if can?(:admin, Spree::ReturnAuthorization) || can?(:admin, Spree::CustomerReturn) %>
+      <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
+        <% category = Spree.t(:customer_returns, scope: [:admin, :tab]) %>
+        <%= link_to "#", class: "w-75" do %>
+          <%= content_tag(:span, nil, class: 'icon icon-transfer') %>
+          <%= category %>
+        <% end %>
+        <%= render partial: "spree/admin/shared/chevron_right", locals: {category: category} %>
+        <%= render partial: "spree/admin/shared/mobile_sub_menu/returns", locals: {category: category} %>
+      </li>
+    <% end %>
+
+    <% if can? :admin, Spree::Product %>
+      <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
+        <% category = Spree.t(:products, scope: [:admin, :tab]) %>        
+        <%= link_to "#", class: "w-75" do %>
+          <%= content_tag(:span, nil, class: 'icon icon-th-large') %>
+          <%= category %>
+        <% end %>
+        <%= render partial: "spree/admin/shared/chevron_right", locals: {category: category} %>
+        <%= render partial: "spree/admin/shared/mobile_sub_menu/product", locals: {category: category} %>
+      </li>
+    <% end %>
+
+    <% if can? :admin, Spree::Admin::ReportsController %>
+      <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
+        <%= link_to spree.admin_reports_url, class: "w-75" do %>
+          <%= content_tag(:span, nil, class: 'icon icon-file') %>
+          <%= Spree.t(:reports, scope: [:admin, :tab]) %>
+        <% end %> 
+      </li>
+    <% end %>
+
+    <% if can? :admin, Spree::Promotion %>
+      <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
+        <% category = Spree.t(:promotions, scope: [:admin, :tab]) %>
+        <%= link_to "#", class: "w-75" do %>
+          <%= content_tag(:span, nil, class: 'icon icon-gift') %>
+          <%= category %>
+        <% end %>
+        <%= render partial: "spree/admin/shared/chevron_right", locals: {category: category} %>
+        <%= render partial: "spree/admin/shared/mobile_sub_menu/promotion", locals: {category: category} %>
+      </li>
+    <% end %>
+
+    <% if Spree.user_class && can?(:admin, Spree.user_class) %>
+      <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
+        <%= link_to spree.admin_users_url, class: "w-75" do %>
+          <%= content_tag(:span, nil, class: 'icon icon-user') %>
+          <%= Spree.t(:users, scope: [:admin, :tab]) %>
+        <% end %> 
+      </li>
+    <% end %>
+
+    <% if can? :admin, current_store %>
+      <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
+        <% category = Spree.t(:configuration, scope: [:admin, :tab]) %>        
+        <%= link_to "#", class: "w-75" do %>
+          <%= content_tag(:span, nil, class: 'icon icon-cog') %>
+          <%= category %>
+        <% end %>
+        <%= render partial: "spree/admin/shared/chevron_right", locals: {category: category} %>
+        <%= render partial: "spree/admin/shared/mobile_sub_menu/configuration", locals: {category: category} %>
+      </li>
+    <% end %>
+  </ul>
+</div>
