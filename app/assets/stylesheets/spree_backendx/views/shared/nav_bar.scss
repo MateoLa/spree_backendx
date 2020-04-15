@@ -29,7 +29,7 @@
   &-search-menu {
     position: static;
     &-dropdown {
-      background-color: theme-color('light-background');
+      background-color: #ffffff;
       visibility: hidden;
       opacity: 0;
       z-index: 4;
@@ -48,7 +48,7 @@
       }
 
       form {
-        input#keywords{
+        input {
           background: transparent;
           color: $meganav-font-color;
           font-size: font-px-to-rem(14px);

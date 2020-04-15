@@ -56,8 +56,9 @@
     transform: translate(200%);
     transition: basic-transition(transform);
     &.shown {
+      z-index: 6;
       transform: translate(0);
-    }
+   }
     &-header {
       padding: 16px 0;
       border-bottom: 1px solid $global-border-style;

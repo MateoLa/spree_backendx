@@ -1,10 +1,10 @@
 $().ready(function ($) {
   document.getElementById('overlay').addEventListener('click', function () {
-    var noProductElement = document.getElementById('no-product-available')
+//    var noProductElement = document.getElementById('no-product-available')
     document.getElementById("overlay").classList.remove('shown');
-//    document.getElementById("search-dropdown").classList.remove('shown');
+    document.getElementById("admin-search-dropdown").classList.remove('shown');
     document.querySelector('.admin-header-spree').classList.remove('above-overlay')
-    if (noProductElement) noProductElement.classList.remove('shown');
+//    if (noProductElement) noProductElement.classList.remove('shown');
   }, false);
 
   document.onkeydown = function(evt) {
@@ -27,13 +27,13 @@ $().ready(function ($) {
         document.querySelector(".navbar-right-dropdown-toggle").blur();
         document.getElementById("overlay").classList.remove('shown');
         document.querySelector('.admin-header-spree').classList.remove('above-overlay')
-        document.getElementById("search-dropdown").classList.remove('shown');
+        document.getElementById("admin-search-dropdown").classList.remove('shown');
         $('.hide-on-esc').toggleClass('shown', false)
       }
     }
   };
 
-//  var searchDropdown = document.getElementById('search-dropdown')
+  var searchDropdown = document.getElementById('admin-search-dropdown')
   var burgerButton = document.getElementsByClassName('navbar-toggler');
 //  var navBarCategoryLinks = document.getElementsByClassName('main-nav-bar-category-links')
 //  var navBarCategoryButtons = document.getElementsByClassName('main-nav-bar-category-button')
@@ -53,12 +53,13 @@ $().ready(function ($) {
     spreeMobileNavs
   ]
 
-  if (adminSpreeLogoImage !== null) {
+  if (searchDropdown !== null) {
+//  if (adminSpreeLogoImage !== null) {
     $.each(navbarLinks, function(index, navbarElements) {
       $.each(navbarElements, function(index, navBarCategoryLink) {
         navBarCategoryLink.addEventListener('click', function () {
           document.getElementById('overlay').classList.remove('shown');
-//          searchDropdown.classList.remove('shown');
+          searchDropdown.classList.remove('shown');
           document.querySelector('.admin-header-spree').classList.remove('above-overlay')
         });
       });

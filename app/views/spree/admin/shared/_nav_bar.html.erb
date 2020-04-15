@@ -1,0 +1,43 @@
+<ul id="admin-nav-bar" class="nav align-items-center d-flex justify-content-end navbar-right">
+  <% if content_for?(:table_filter)%>
+    <li>
+      <div class="navbar-right-search-menu">
+        <button type="button" class="navbar-right-dropdown-toggle search-icons" aria-label="<%= Spree.t('nav_bar.show_search')%>">
+          <%= icon(name: 'magnifying-glass',
+                   classes: 'd-none d-xl-inline-block',
+                   width: 36,
+                   height: 36) %>
+
+          <%= icon(name: 'magnifying-glass',
+                   classes: 'd-xl-none',
+                   width: 24,
+                   height: 24) %>
+        </button>
+
+        <div id="admin-search-dropdown" class="p-0 px-md-4 py-md-2 w-100 shadow navbar-right-search-menu-dropdown hide-on-esc">
+          <%= render partial: 'spree/admin/shared/table_filter' %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+
+  <% if try_spree_current_user %>
+    <li>
+      <div class="dropdown navbar-right-dropdown">
+        <button id="store-button" type="button" data-toggle="dropdown" class="navbar-right-dropdown-toggle" aria-label="<%= Spree.t('nav_bar.show_user_menu')%>">
+          <%= inline_svg_tag('spree_backendx/shop-2.svg',
+                              class: 'd-none d-xl-inline-block',
+                              size: '36px*36px') %>
+
+          <%= inline_svg_tag('spree_backendx/shop-2.svg',
+                              class: 'd-xl-none',
+                              size: '27px*27px') %>
+        </button>
+
+        <div id="admin-account-nav-links" class="dropdown-menu dropdown-menu-right">
+          <%= render partial: "spree/admin/shared/account_nav" %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

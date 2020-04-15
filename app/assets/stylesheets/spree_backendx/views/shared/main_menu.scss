@@ -1,21 +1,40 @@
-.main-menu-bar {
-  top: 0;
+.admin-main-menu {
+  top: $spree-header-desktop-height;
   bottom: 0;
   left: 0;
-  right: 0;
   font-weight: 600;
   background: $header-background;
-  color: $header-font-color;  
+  color: $header-font-color;
   @mixin active-category-button {
     border-bottom-color: $header-font-color;
   }
 
+  &-list, &-sublist {
+    margin: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 19px;
+    &-item {
+      padding: 16px 0;
+      border-bottom: 1px solid $global-border-style;
+      @include media-breakpoint-up(sm) {
+        padding: 32px 0;
+      }
+      a {
+        color: $header-font-color;
+        text-decoration: none;
+        img {
+          width: 8px;
+        }
+      }
+    }
+  }
   &-item {
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: $font-weight-medium;
     a {
-      color: theme-color('dark-text');
+      color: $header-font-color;
 
       &:hover {
         text-decoration: none;
@@ -106,6 +125,6 @@
   }
 
   .spree-icon {
-    color: theme-color('dark-text');
+    color: $header-font-color;
   }
 }

@@ -10,11 +10,11 @@ body {
 }
 
 .admin-header-spree {
+  top: 0;
   background: $header-background;
   color: $header-font-color;
   border-color: $global-border-style !important;
   position: fixed;
-  top: 0;
   width: 100%;
   z-index: 16;
 
@@ -29,6 +29,12 @@ body {
   height: $spree-header-mobile-height;
   &-fluid {
     max-width: $spree-header-max-width;
+    .navbar-toggler {
+      color: $header-font-color;
+      &:focus {
+        outline: 0;
+      }
+    }
     &-logo {
       flex-basis: auto;
       margin: 0;
