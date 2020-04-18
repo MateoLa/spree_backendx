@@ -30,12 +30,13 @@
     position: static;
     &-dropdown {
       background-color: #ffffff;
+      color: $font-color;
       visibility: hidden;
       opacity: 0;
       z-index: 4;
       left: 0;
       right: 0;
-      position: absolute;
+      position: absolute;         
       top: $spree-header-mobile-height;
       margin: 0;
 
@@ -46,6 +47,19 @@
       @include media-breakpoint-up(xl) {
         top: $spree-header-desktop-height;
       }
+
+      .filter-well {
+        overflow-y: auto;
+        height: calc(100vh - 3*#{$spree-header-mobile-height});
+
+        @include media-breakpoint-up(sm) {
+          height: calc(100vh - 3*#{$spree-header-tablet-height});
+        }
+
+        @include media-breakpoint-up(xl) {
+          height: calc(100vh - 3*#{$spree-header-desktop-height});
+        }
+      }   
 
       form {
         input {
@@ -58,7 +72,7 @@
           }
           &::placeholder {
             text-transform: uppercase;
-            color: theme-color("borders");
+            color: darken(theme-color("borders"), 15);
           }
           &::-webkit-search-cancel-button {
             display: none;
@@ -67,8 +81,8 @@
             font-size: font-px-to-rem(22px);
           }
         }
-        input[type="submit"] {
-          display: none;
+        input[type="checkbox"] {
+          width: auto;
         }
       }
 
