@@ -1,0 +1,107 @@
+<% content_for :page_title do %>
+  <%= plural_resource_name(Spree::Order) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_order),
+    new_admin_order_url,
+    class: "btn-success",
+      icon: 'add',
+      id: 'admin_new_order' %>
+<% end if can? :create, Spree::Order %>
+
+<%= render partial: 'spree/admin/orders/table_filter' %>
+
+<%= render 'spree/admin/shared/index_table_options', collection: @orders %>
+
+<% if @orders.any? %>
+  <table class="table" id="listing_orders" data-hook>
+    <thead>
+      <tr data-hook="admin_orders_index_headers">
+        <% if @show_only_completed %>
+          <th class="text-uppercase text-secondary order-date">
+            <%= sort_link @search, :completed_at, I18n.t(:completed_at, scope: 'activerecord.attributes.spree/order') %></th>
+        <% else %>
+          <th class="text-uppercase text-secondary order-date">
+            <%= sort_link @search, :created_at, I18n.t(:created_at, scope: 'activerecord.attributes.spree/order') %></th>
+        <% end %>
+        <th class="text-uppercase text-secondary order-number">
+          <%= sort_link @search, :number, I18n.t(:number, scope: 'activerecord.attributes.spree/order') %></th>
+        <th class="text-uppercase text-secondary order-risk">
+          <%= sort_link @search, :considered_risky, I18n.t(:considered_risky, scope: 'activerecord.attributes.spree/order') %></th>
+        <th class="text-uppercase text-secondary order-state">
+          <%= sort_link @search, :state, I18n.t(:state, scope: 'activerecord.attributes.spree/order') %></th>
+        <th class="text-uppercase text-secondary order-payment-state">
+          <%= sort_link @search, :payment_state, I18n.t(:payment_state, scope: 'activerecord.attributes.spree/order') %></th>
+         <% if Spree::Order.checkout_step_names.include?(:delivery) %>
+          <th class="text-uppercase text-secondary order-shipment-state">
+            <%= sort_link @search, :shipment_state, I18n.t(:shipment_state, scope: 'activerecord.attributes.spree/order') %></th>
+         <% end %>
+        <th class="text-uppercase text-secondary order-email">
+          <%= sort_link @search, :email, I18n.t(:email, scope: 'activerecord.attributes.spree/order') %></th>
+        <th class="text-uppercase text-secondary order-total">
+          <%= sort_link @search, :total, I18n.t(:total, scope: 'activerecord.attributes.spree/order') %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @orders.each do |order| %>
+      <tr data-hook="admin_orders_index_rows" class="state-<%= order.state.downcase %> <%= cycle('odd', 'even') %>">
+        <td class="order-date">
+          <%= @show_only_completed ? order.completed_at.to_date : order.created_at.to_date %>
+        </td>
+        <td class="order-number"><%= link_to order.number, edit_admin_order_path(order) %></td>
+        <td class="order-risk">
+          <span class="badge badge-<%= order.considered_risky ? 'considered_risky' : 'considered_safe' %>">
+            <%= order.considered_risky ? Spree.t("risky") : Spree.t("safe") %>
+          </span>
+        </td>
+        <td class="order-state">
+          <span class="badge badge-<%= order.state.downcase %>"><%= Spree.t("order_state.#{order.state.downcase}") %></span>
+          <span class="icon icon-filter filterable js-add-filter" data-ransack-field="q_state_eq" data-ransack-value="<%= order.state %>"></span>
+        </td>
+        <td class="order-payment-state">
+          <% if order.payment_state %>
+
+            <%= link_to Spree.t("payment_states.#{order.payment_state}"),
+              admin_order_payments_path(order),
+              class: "badge badge-#{order.payment_state}" %>
+
+            <span class="icon icon-filter filterable js-add-filter"
+              data-ransack-field="q_payment_state_eq"
+              data-ransack-value="<%= order.payment_state %>"></span>
+          <% end %>
+        </td>
+        <% if Spree::Order.checkout_step_names.include?(:delivery) %>
+          <td class="order-shipment-state">
+            <% if order.shipment_state %>
+              <span class="badge badge-<%= order.shipment_state %>"><%= Spree.t("shipment_states.#{order.shipment_state}") %></span>
+              <span class="icon icon-filter filterable js-add-filter" data-ransack-field="q_shipment_state_eq" data-ransack-value="<%= order.shipment_state %>"></span>
+            <% end %>
+          </td>
+        <% end %>
+        <td class="order-email">
+          <% if order.user %>
+            <%= link_to order.email, edit_admin_user_path(order.user) %>
+          <% else %>
+            <%= mail_to order.email %>
+          <% end %>
+          <% if order.user || order.email %>
+            <span class="icon icon-filter filterable js-add-filter" data-ransack-field="q_email_cont" data-ransack-value="<%= order.email %>"></span>
+          <% end %>
+        </td>
+        <td class="order-total"><%= order.display_total.to_html %></td>
+        <td class="arrow-container" data-order-path="<%= spree.edit_admin_order_path(order) %>">
+          <%= link_to '', spree.edit_admin_order_path(order), { class: "order-arrow" } %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Order)) %>,
+    <%= link_to(Spree.t(:add_one), new_admin_order_url) if can? :create, Spree::Order %>!
+  </div>
+<% end %>
+
+<%= render 'spree/admin/shared/index_table_options', collection: @orders, simple: true %>

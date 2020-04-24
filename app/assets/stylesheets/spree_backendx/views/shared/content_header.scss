@@ -27,4 +27,8 @@
       font-size: font-px-to-rem(18px);
     }
   }
+  .page-actions a {
+    background-color: $header-background;
+    border-color: $header-background;
+  }
 }

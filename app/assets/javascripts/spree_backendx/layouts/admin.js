@@ -1,4 +1,23 @@
 $().ready(function ($) {
+
+  // Sidebar nav toggle functionality
+  var sidebar_toggle = $('#sidebar-toggle')
+
+  sidebar_toggle.on('click', function() {
+    var main = $('#admin-main-part')
+    var table_filter = $("#backendx-table-filter")
+
+    // these should match `spree_backendx/app/controllers/spree/admin/base_controller_decorator.rb#main_part_classes`
+    main
+      .toggleClass('col-12 sidebar-collapsed')
+      .toggleClass('col-12 col-md-10 offset-md-2')
+      
+    table_filter
+      .toggleClass('col-12 sidebar-collapsed')
+      .toggleClass('col-12 col-md-10 offset-md-2')
+  })
+
+
   document.getElementById('overlay').addEventListener('click', function () {
 //    var noProductElement = document.getElementById('no-product-available')
     document.getElementById("overlay").classList.remove('shown');

@@ -40,6 +40,10 @@
       top: $spree-header-mobile-height;
       margin: 0;
 
+      .spree-icon {
+        color: darken(theme-color("borders"), 15);
+      }
+
       @include media-breakpoint-up(sm) {
         top: $spree-header-tablet-height;
       }

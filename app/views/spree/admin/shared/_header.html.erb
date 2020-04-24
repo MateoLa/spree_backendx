@@ -2,21 +2,21 @@
   <header id="admin-header" class="d-flex align-items-center admin-header-spree border-bottom">
     <div class="container-fluid h-100 admin-header-spree-fluid">
       <div class="d-flex flex-nowrap align-items-center h-100">
-        <div class="d-xl-none flex-grow-1 admin-header-spree-fluid-mobile-menu-toggler">
+        <div class="d-md-none flex-grow-1 admin-header-spree-fluid-mobile-menu-toggler">
           <button class="navbar-toggler border-0 px-0 d-flex" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-label="<%= Spree.t('nav_bar.show_menu') %>">
             <%= icon(name: 'burger',
                     width: 18.5,
                     height: 16)  %>
           </button>
         </div>
-        <div class="d-none d-xl-flex flex-grow-1">
+        <div class="d-none d-md-flex flex-grow-1">
           <button id="sidebar-toggle" class="navbar-toggler border-0 px-0 d-flex" type="button" aria-label="Toggle navigation">
             <%= icon(name: 'burger',
                     width: 18.5,
                     height: 16)  %>
           </button>
         </div>
-        <figure class="logo flex-grow-0 flex-xl-grow-1 order-xl-0 admin-header-spree-fluid-logo m-0">
+        <figure class="logo flex-grow-0 flex-xl-grow-1 order-md-0 admin-header-spree-fluid-logo m-0">
           <%= link_to(
             image_tag(Spree::Config[:admin_interface_logo]),
             spree.admin_path,

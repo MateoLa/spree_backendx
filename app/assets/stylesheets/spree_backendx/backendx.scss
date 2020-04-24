@@ -16,12 +16,9 @@
 @import "spree_backendx/views/shared/nav_bar";
 @import "spree_backendx/views/shared/mobile_navigation";
 @import "spree_backendx/views/shared/content_header";
+@import "spree_backendx/views/orders/index";
 
-
-#main-part {
-  margin-top: 0px;
-}
 
 .sidebar {
-	margin-top: 0px;
+	margin-top: 0;
 }

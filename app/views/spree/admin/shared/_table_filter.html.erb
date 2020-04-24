@@ -1,6 +1,6 @@
 <% if content_for?(:table_filter) %>
   <div class="filter-wrap row p-0">
-    <div class="col-12 col-xl-10 offset-xl-2">
+    <div class="<%= backendx_filter_classes %>" id="backendx-table-filter">
       <div class="input-group">
         <%= form_tag request.fullpath, id: "quick-search", class: 'py-md-1 d-flex align-items-center flex-grow-1' do %>
           <%= text_field_tag :quick_search, nil, class: "border-0 p-3 js-quick-search", placeholder: Spree.t(:quick_search) %>
