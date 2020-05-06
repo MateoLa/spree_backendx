@@ -21,17 +21,37 @@
     </li>
   <% end %>
 
+  <% if content_for?(:sidebar)%>
+    <li>
+      <div class="d-md-none flex-grow-1 navbar-right-dropdown">
+        <button class="navbar-toggler border-0 px-0 d-flex" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-label="<%= Spree.t('nav_bar.show_menu') %>">
+          <%= icon(name: 'spree_backendx/cog',
+                  width: 27,
+                  height: 27)  %>
+        </button>
+      </div>
+      <div class="d-none d-md-flex flex-grow-1 navbar-right-dropdown">
+        <button id="sidebar-toggle" class="navbar-toggler border-0 px-0 d-flex" type="button" aria-label="<%= Spree.t('nav_bar.show_menu') %>">
+          <%= icon(name: 'spree_backendx/cog',
+                  width: 36,
+                  height: 36)  %>
+        </button>
+      </div>
+    </li>
+  <% end %>
+
   <% if try_spree_current_user %>
     <li>
       <div class="dropdown navbar-right-dropdown">
         <button id="store-button" type="button" data-toggle="dropdown" class="navbar-right-dropdown-toggle" aria-label="<%= Spree.t('nav_bar.show_user_menu')%>">
-          <%= inline_svg_tag('spree_backendx/shop-2.svg',
-                              class: 'd-none d-xl-inline-block',
-                              size: '36px*36px') %>
-
-          <%= inline_svg_tag('spree_backendx/shop-2.svg',
-                              class: 'd-xl-none',
-                              size: '27px*27px') %>
+          <%= icon(name: 'spree_backendx/shop-2',
+                  classes: 'd-none d-xl-inline-block',
+                  width: 36,
+                  height: 36) %>
+          <%= icon(name: 'spree_backendx/shop-2',
+                  classes: 'd-xl-none',
+                  width: 27,
+                  height: 27) %>
         </button>
 
         <div id="admin-account-nav-links" class="dropdown-menu dropdown-menu-right">

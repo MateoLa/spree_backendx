@@ -54,14 +54,14 @@
 
       .filter-well {
         overflow-y: auto;
-        height: calc(100vh - 3*#{$spree-header-mobile-height});
+        max-height: calc(100vh - 3*#{$spree-header-mobile-height});
 
         @include media-breakpoint-up(sm) {
-          height: calc(100vh - 3*#{$spree-header-tablet-height});
+          max-height: calc(100vh - 3*#{$spree-header-tablet-height});
         }
 
         @include media-breakpoint-up(xl) {
-          height: calc(100vh - 3*#{$spree-header-desktop-height});
+          max-height: calc(100vh - 3*#{$spree-header-desktop-height});
         }
       }   
 
