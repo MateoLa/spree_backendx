@@ -36,7 +36,7 @@
       z-index: 4;
       left: 0;
       right: 0;
-      position: absolute;         
+      position: absolute;
       top: $spree-header-mobile-height;
       margin: 0;
 
@@ -51,19 +51,6 @@
       @include media-breakpoint-up(xl) {
         top: $spree-header-desktop-height;
       }
-
-      .filter-well {
-        overflow-y: auto;
-        max-height: calc(100vh - 3*#{$spree-header-mobile-height});
-
-        @include media-breakpoint-up(sm) {
-          max-height: calc(100vh - 3*#{$spree-header-tablet-height});
-        }
-
-        @include media-breakpoint-up(xl) {
-          max-height: calc(100vh - 3*#{$spree-header-desktop-height});
-        }
-      }   
 
       form {
         input {
@@ -85,8 +72,8 @@
             font-size: font-px-to-rem(22px);
           }
         }
-        input[type="checkbox"] {
-          width: auto;
+        input[type="submit"] {
+          display: none;
         }
       }
 

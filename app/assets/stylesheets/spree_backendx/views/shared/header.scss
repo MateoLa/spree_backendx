@@ -9,12 +9,12 @@ body {
   }
 }
 
-.admin-header-spree {
-  top: 0;
+.header-spree {
   background: $header-background;
   color: $header-font-color;
   border-color: $global-border-style !important;
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 16;
 

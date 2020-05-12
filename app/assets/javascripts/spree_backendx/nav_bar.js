@@ -10,13 +10,30 @@ $(document).ready(function() {
     )
   }
 
+  var content_sidebar = $('#content-sidebar')
+
+  content_sidebar.on('click', function() {
+    var content = $('#content')
+    var main    = $('#main-part')
+    var sidebar = $('#sidebar')
+
+    main.toggleClass('sidebar-minimized')
+
+//    content
+//      .toggleClass('col-12 sidebar-collapsed')
+//      .toggleClass('col-8 col-md-9')
+  })
+
+
+
+
   function toggleSearchBar() {
     if (searchDropdown.classList.contains('shown')) {
-      document.querySelector('.admin-header-spree').classList.remove('above-overlay')
+      document.querySelector('.header-spree').classList.remove('above-overlay')
       document.getElementById('overlay').classList.remove('shown')
       searchDropdown.classList.remove('shown')
     } else {
-      document.querySelector('.admin-header-spree').classList.add('above-overlay')
+      document.querySelector('.header-spree').classList.add('above-overlay')
       document.getElementById('overlay').classList.add('shown')
       searchDropdown.classList.add('shown')
       document.querySelector('#admin-search-dropdown input').focus()

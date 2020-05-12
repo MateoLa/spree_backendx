@@ -43,7 +43,7 @@
         <%#-------------------------------------------------%>
         <%# Content                                         %>
         <%#-------------------------------------------------%>
-        <main class="<%= main_part_classes %> main" id="admin-main-part" role="main">
+        <main class="<%= main_part_classes %> main" id="main-part" role="main">
 
           <%#-------------------------------------------------%>
           <%# Content header (page title/actions)             %>
@@ -68,7 +68,7 @@
             <%# Inner aside                                     %>
             <%#-------------------------------------------------%>
             <% if content_for?(:sidebar) %>
-              <div class="col-4 col-md-3">
+              <div class="col-4 col-md-3" id="sidebar-cols">
                 <%= render partial: 'spree/admin/shared/sidebar' %>
               </div>
             <% end %>

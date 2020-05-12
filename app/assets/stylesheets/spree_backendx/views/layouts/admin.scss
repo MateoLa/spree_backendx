@@ -2,27 +2,29 @@ body {
   background: #ffffff;
 }
 
-#admin-main-part {
+#main-part {
   margin-top: 0;
   padding: $spacer ($spacer * 2) 0 ($spacer * 2);
 }
 
-.sidebar-minimized #admin-main-part {
+.sidebar-minimized #main-part {
+  padding: $spacer ($spacer * 2) 0 ($spacer * 2);
+
   @include media-breakpoint-up(md) {
     padding: $spacer ($spacer * 2) 0 ($spacer * 5);
   }
 }
-
-#backendx-table-filter {
+/*
+#table-filter {
   padding: 0 ($spacer * 2);
 }
 
-#backendx-table-filter.sidebar-collapsed {
+#table-filter.sidebar-collapsed {
   @include media-breakpoint-up(md) {
     padding: 0 ($spacer * 2) 0 ($spacer * 5);
   }
 }
-
+*/
 .modal-content {
   background: $primary-background;
 }

@@ -4,17 +4,17 @@ $().ready(function ($) {
   var sidebar_toggle = $('#sidebar-toggle')
 
   sidebar_toggle.on('click', function() {
-    var main = $('#admin-main-part')
-    var table_filter = $("#backendx-table-filter")
+    var main = $('#main-part')
+//    var table_filter = $("#table-filter")
 
-    // these should match `spree_backendx/app/controllers/spree/admin/base_controller_decorator.rb#main_part_classes`
+//     these should match `spree_backendx/app/controllers/spree/admin/base_controller_decorator.rb#main_part_classes`
     main
       .toggleClass('col-12 sidebar-collapsed')
       .toggleClass('col-12 col-md-10 offset-md-2')
       
-    table_filter
-      .toggleClass('col-12 sidebar-collapsed')
-      .toggleClass('col-12 col-md-10 offset-md-2')
+//    table_filter
+//      .toggleClass('col-12 sidebar-collapsed')
+//      .toggleClass('col-12 col-md-10 offset-md-2')
   })
 
 
@@ -22,7 +22,7 @@ $().ready(function ($) {
 //    var noProductElement = document.getElementById('no-product-available')
     document.getElementById("overlay").classList.remove('shown');
     document.getElementById("admin-search-dropdown").classList.remove('shown');
-    document.querySelector('.admin-header-spree').classList.remove('above-overlay')
+    document.querySelector('.header-spree').classList.remove('above-overlay')
 //    if (noProductElement) noProductElement.classList.remove('shown');
   }, false);
 
@@ -45,7 +45,7 @@ $().ready(function ($) {
       if (isEscape) {
         document.querySelector(".navbar-right-dropdown-toggle").blur();
         document.getElementById("overlay").classList.remove('shown');
-        document.querySelector('.admin-header-spree').classList.remove('above-overlay')
+        document.querySelector('.header-spree').classList.remove('above-overlay')
         document.getElementById("admin-search-dropdown").classList.remove('shown');
         $('.hide-on-esc').toggleClass('shown', false)
       }
@@ -59,7 +59,7 @@ $().ready(function ($) {
   var navBarCategoryImages = document.getElementsByClassName('category-image')
   var navBarAccountIcon = [document.getElementById('store-button')]
 //  var navBarCartIcon = [document.getElementById('link-to-cart')]
-  var adminSpreeLogoImage = document.getElementsByClassName('admin-header-spree-fluid-logo')
+  var adminSpreeLogoImage = document.getElementsByClassName('header-spree-fluid-logo')
   var spreeMobileNavs = document.getElementsByClassName('mobile-navigation-list-item')
   var navbarLinks = [
     burgerButton,
@@ -79,7 +79,7 @@ $().ready(function ($) {
         navBarCategoryLink.addEventListener('click', function () {
           document.getElementById('overlay').classList.remove('shown');
           searchDropdown.classList.remove('shown');
-          document.querySelector('.admin-header-spree').classList.remove('above-overlay')
+          document.querySelector('.header-spree').classList.remove('above-overlay')
         });
       });
     });
