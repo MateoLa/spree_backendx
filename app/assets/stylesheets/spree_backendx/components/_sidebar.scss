@@ -1,5 +1,12 @@
-#main-part.sidebar-minimized #sidebar-cols {
-  width: 50px;
+#sidebar-cols {
+  position: absolute;
+  top: 0;
+  right: 0;
+  white-space: nowrap;
+}
+
+#admin-main-part.sidebar-minimized #sidebar-cols {
+  width: auto;
   overflow: visible;
 
   li {
@@ -12,36 +19,16 @@
     text-align: center;
 
     .icon {
+      margin: 0 !important;
       padding: 0;
     }
 
-    .text, .icon-chevron-left, .icon-chevron-down {
+    .text {
       display: none;
     }
   }
 
   ul.collapse.in {
     display: none;
-  }
-
-  .submenu-active {
-    display: block !important;
-    height: auto !important;
-    position: fixed;
-    top: 50px;
-    bottom: 0;
-    left: 0;
-    padding: 0;
-    z-index: 1000;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    left: 50px;
-    min-width: 180px;
-    visibility: visible;
-    background-color: $gray-100;
-    border-top: none;
-    border-right: 1px solid $gray-200;
-    padding-top: 5px;
   }
 }

@@ -13,21 +13,9 @@
     font-size: font-px-to-rem(24px);
   }
 }
-.page-header {
-  font-weight: 500;
-  h1 {
-    color: $font-color;
-    font-size: font-px-to-rem(32px);
-    text-align: center;
-
-    @include media-breakpoint-down(md) {
-      font-size: font-px-to-rem(34px);
-    }
-    @include media-breakpoint-down(sm) {
-      font-size: font-px-to-rem(18px);
-    }
-  }
+.content-header {
   .page-actions a {
+    color: $header-font-color;
     background-color: $header-background;
     border-color: $header-background;
   }

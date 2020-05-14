@@ -43,14 +43,14 @@
         <%#-------------------------------------------------%>
         <%# Content                                         %>
         <%#-------------------------------------------------%>
-        <main class="<%= main_part_classes %> main" id="main-part" role="main">
+        <main class="<%= main_part_classes %> main" id="admin-main-part" role="main">
 
           <%#-------------------------------------------------%>
           <%# Content header (page title/actions)             %>
           <%#-------------------------------------------------%>
           <%= render partial: 'spree/admin/shared/content_header' %>
 
-          <div class="row">
+          <div class="row position-relative">
             <%#-------------------------------------------------%>
             <%# Alerts                                          %>
             <%#-------------------------------------------------%>
@@ -73,7 +73,6 @@
               </div>
             <% end %>
           </div>
-
 
         </main>
       </div>

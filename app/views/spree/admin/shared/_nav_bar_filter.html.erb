@@ -1,6 +1,6 @@
 <% if content_for?(:table_filter) %>
   <div class="filter-wrap row p-0">
-    <div class="<%= filter_classes %>" id="">
+    <div class="<%= filter_classes %>" id="admin-table-filter">
       <div class="input-group">
         <%= form_tag request.fullpath, id: "quick-search", class: 'py-md-1 d-flex align-items-center flex-grow-1' do %>
           <%= text_field_tag :quick_search, nil, class: "border-0 p-3 js-quick-search", placeholder: Spree.t(:quick_search) %>
@@ -17,7 +17,7 @@
         <% end %>
       </div>
       <% unless defined?(simple) %>
-        <div id="table-filter" data-hook class="card bg-light filter-well m-0 mx-3">
+        <div id="table-filter" data-hook class="card bg-light filter-well m-0 mx-3 mb-3">
           <div class="card-body">
             <%= yield :table_filter %>
           </div>
@@ -31,5 +31,4 @@
       <div class="table-active-filters js-filters m-0"></div>
     </div>
   </div>
-
 <% end %>

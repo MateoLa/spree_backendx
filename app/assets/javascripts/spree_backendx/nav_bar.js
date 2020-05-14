@@ -14,17 +14,15 @@ $(document).ready(function() {
 
   content_sidebar.on('click', function() {
     var content = $('#content')
-    var main    = $('#main-part')
-    var sidebar = $('#sidebar')
+    var main    = $('#admin-main-part')
+    var sidebar = $('#sidebar-cols')
 
-    main.toggleClass('sidebar-minimized')
+   main.toggleClass('sidebar-minimized')
 
-//    content
-//      .toggleClass('col-12 sidebar-collapsed')
-//      .toggleClass('col-8 col-md-9')
+    content
+      .toggleClass('col-12 sidebar-minimized')
+      .toggleClass('col-8 col-md-9')
   })
-
-
 
 
   function toggleSearchBar() {

@@ -52,7 +52,7 @@
         top: $spree-header-desktop-height;
       }
 
-      form {
+      #quick-search {
         input {
           background: transparent;
           color: $meganav-font-color;
@@ -72,8 +72,24 @@
             font-size: font-px-to-rem(22px);
           }
         }
+        input[type="checkbox"] {
+          width: auto;
+        }
         input[type="submit"] {
           display: none;
+        }
+      }
+
+      #table-filter {
+        overflow-y: auto;
+        max-height: calc(100vh - 2*#{$spree-header-mobile-height} - 1rem);
+
+        @include media-breakpoint-up(sm) {
+          max-height: calc(100vh - 2*#{$spree-header-tablet-height} - 1rem);
+        }
+
+        @include media-breakpoint-up(xl) {
+          max-height: calc(100vh - 2*#{$spree-header-desktop-height} - 1rem);
         }
       }
 

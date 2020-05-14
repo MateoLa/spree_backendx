@@ -2,29 +2,36 @@ body {
   background: #ffffff;
 }
 
-#main-part {
+#admin-main-part {
   margin-top: 0;
-  padding: $spacer ($spacer * 2) 0 ($spacer * 2);
+  padding: $spacer ($spacer * 2);
 }
 
-.sidebar-minimized #main-part {
-  padding: $spacer ($spacer * 2) 0 ($spacer * 2);
-
+.sidebar-minimized #admin-main-part {
+  padding: $spacer ($spacer * 2);
   @include media-breakpoint-up(md) {
-    padding: $spacer ($spacer * 2) 0 ($spacer * 5);
+    padding-left: $spacer * 5;
   }
 }
-/*
-#table-filter {
+
+#admin-main-part.sidebar-minimized #content {
+  padding: 0 $spacer;
+  @include media-breakpoint-up(md) {
+    padding-right: $spacer * 5;
+  }
+}
+
+#admin-table-filter {
   padding: 0 ($spacer * 2);
 }
 
-#table-filter.sidebar-collapsed {
+#admin-table-filter.sidebar-collapsed {
+  padding: 0 ($spacer * 2);  
   @include media-breakpoint-up(md) {
     padding: 0 ($spacer * 2) 0 ($spacer * 5);
   }
 }
-*/
+
 .modal-content {
   background: $primary-background;
 }
