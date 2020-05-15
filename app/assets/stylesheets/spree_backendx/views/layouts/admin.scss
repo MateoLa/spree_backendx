@@ -15,7 +15,6 @@ body {
 }
 
 #admin-main-part.sidebar-minimized #content {
-  padding: 0 $spacer;
   @include media-breakpoint-up(md) {
     padding-right: $spacer * 5;
   }

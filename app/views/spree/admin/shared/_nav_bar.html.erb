@@ -23,20 +23,21 @@
 
   <% if content_for?(:sidebar)%>
     <li>
-      <div class="d-md-none flex-grow-1 navbar-right-dropdown">
-        <button class="navbar-right-dropdown-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-label="<%= Spree.t('nav_bar.show_menu') %>">
+      <div class="d-md-none navbar-right-dropdown">
+        <button class="sidebar-toggler navbar-right-dropdown-toggle" type="button" data-toggle="collapse" data-target="#mobile-sidebar" aria-label="<%= Spree.t('nav_bar.show_menu') %>">
           <%= icon(name: 'spree_backendx/cog-2',
                   width: 29,
                   height: 29)  %>
         </button>
       </div>
-      <div class="d-none d-md-flex flex-grow-1 navbar-right-dropdown">
+      <div class="d-none d-md-flex navbar-right-dropdown">
         <button id="content-sidebar" class="navbar-right-dropdown-toggle" type="button" aria-label="<%= Spree.t('nav_bar.show_menu') %>">
           <%= icon(name: 'spree_backendx/cog-2',
                   width: 38,
                   height: 38)  %>
         </button>
       </div>
+      <%= render partial: "spree/admin/shared/mobile_sidebar" %>
     </li>
   <% end %>
 

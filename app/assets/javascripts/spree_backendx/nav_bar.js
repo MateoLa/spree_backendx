@@ -20,8 +20,8 @@ $(document).ready(function() {
    main.toggleClass('sidebar-minimized')
 
     content
-      .toggleClass('col-12 sidebar-minimized')
-      .toggleClass('col-8 col-md-9')
+      .toggleClass('sidebar-minimized')
+      .toggleClass('col-md-9')
   })
 
 

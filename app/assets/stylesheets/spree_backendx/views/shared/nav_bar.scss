@@ -68,8 +68,8 @@
           &::-webkit-search-cancel-button {
             display: none;
           }
-          @include media-breakpoint-up(md) {
-            font-size: font-px-to-rem(22px);
+          @include media-breakpoint-up(sm) {
+            font-size: font-px-to-rem(22px) !important;
           }
         }
         input[type="checkbox"] {

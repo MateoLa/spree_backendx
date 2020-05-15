@@ -39,7 +39,7 @@
   <ul class="list-unstyled position-relative h-100 mobile-navigation-list">
     <% if can? :admin, Spree::Order %>
       <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-        <%= link_to spree.admin_orders_url, class: "w-75" do %>
+        <%= link_to spree.admin_orders_url, class: "w-100" do %>
           <%= content_tag(:span, nil, class: 'icon icon-shopping-cart') %>
           <%= Spree.t(:orders, scope: [:admin, :tab]) %>
         <% end %>      
@@ -49,7 +49,7 @@
     <% if can?(:admin, Spree::ReturnAuthorization) || can?(:admin, Spree::CustomerReturn) %>
       <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
         <% category = Spree.t(:customer_returns, scope: [:admin, :tab]) %>
-        <%= link_to "#", class: "w-75" do %>
+        <%= link_to "#", class: "w-75 mobile-navigation-category-link", 'data-category': category.parameterize do %>
           <%= content_tag(:span, nil, class: 'icon icon-transfer') %>
           <%= category %>
         <% end %>
@@ -61,7 +61,7 @@
     <% if can? :admin, Spree::Product %>
       <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
         <% category = Spree.t(:products, scope: [:admin, :tab]) %>        
-        <%= link_to "#", class: "w-75" do %>
+        <%= link_to "#", class: "w-75 mobile-navigation-category-link", 'data-category': category.parameterize do %>
           <%= content_tag(:span, nil, class: 'icon icon-th-large') %>
           <%= category %>
         <% end %>
@@ -72,7 +72,7 @@
 
     <% if can? :admin, Spree::Admin::ReportsController %>
       <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-        <%= link_to spree.admin_reports_url, class: "w-75" do %>
+        <%= link_to spree.admin_reports_url, class: "w-100" do %>
           <%= content_tag(:span, nil, class: 'icon icon-file') %>
           <%= Spree.t(:reports, scope: [:admin, :tab]) %>
         <% end %> 
@@ -82,7 +82,7 @@
     <% if can? :admin, Spree::Promotion %>
       <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
         <% category = Spree.t(:promotions, scope: [:admin, :tab]) %>
-        <%= link_to "#", class: "w-75" do %>
+        <%= link_to "#", class: "w-75 mobile-navigation-category-link", 'data-category': category.parameterize do %>
           <%= content_tag(:span, nil, class: 'icon icon-gift') %>
           <%= category %>
         <% end %>
@@ -93,7 +93,7 @@
 
     <% if Spree.user_class && can?(:admin, Spree.user_class) %>
       <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-        <%= link_to spree.admin_users_url, class: "w-75" do %>
+        <%= link_to spree.admin_users_url, class: "w-100" do %>
           <%= content_tag(:span, nil, class: 'icon icon-user') %>
           <%= Spree.t(:users, scope: [:admin, :tab]) %>
         <% end %> 
@@ -103,7 +103,7 @@
     <% if can? :admin, current_store %>
       <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
         <% category = Spree.t(:configuration, scope: [:admin, :tab]) %>        
-        <%= link_to "#", class: "w-75" do %>
+        <%= link_to "#", class: "w-75 mobile-navigation-category-link", 'data-category': category.parameterize do %>
           <%= content_tag(:span, nil, class: 'icon icon-cog') %>
           <%= category %>
         <% end %>

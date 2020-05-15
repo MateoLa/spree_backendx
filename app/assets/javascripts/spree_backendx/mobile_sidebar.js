@@ -1,20 +1,20 @@
 $().ready(function($) {
 
-  function MobileNavigationManager()  {
-    this.mobileNavigation = document.querySelector('.mobile-navigation');
+  function MobileSidebarManager()  {
+    this.mobileSidebar = document.querySelector('.mobile-sidebar');
 
-    if (this.mobileNavigation !== null) {
-      this.burgerButton = document.querySelector('.navbar-toggler');
-      this.closeButton = document.querySelector('#mobile-navigation-close-button');
+    if (this.mobileSidebar !== null) {
+      this.cogButton = document.querySelector('.sidebar-toggler');
+      this.closeButton = document.querySelector('#mobile-sidebar-close-button');
       this.mobileNavigationList = document.querySelector('.mobile-navigation-list');
       this.categoryLinks = document.querySelectorAll('.mobile-navigation-category-link');
-      this.backButton = document.querySelector('#mobile-navigation-back-button');
+      this.backButton = document.querySelector('#mobile-sidebar-back-button');
       this.overlay = document.querySelector('#overlay');
       this.navigationOpen = false;
       this.openedCategories = ['main'];
       this.onResize = this.onResize.bind(this);
       this.onCategoryClick = this.onCategoryClick.bind(this);
-      this.onBurgerClick = this.onBurgerClick.bind(this);
+      this.onCogClick = this.onCogClick.bind(this);
       this.onCloseClick = this.onCloseClick.bind(this);
       this.onBackClick = this.onBackClick.bind(this);
       this.closeAllCategories = this.closeAllCategories.bind(this);
@@ -22,7 +22,7 @@ $().ready(function($) {
       window.addEventListener('resize', this.onResize);
       window.addEventListener('turbolinks:request-start', this.onCloseClick);
 
-      this.burgerButton.addEventListener('click', this.onBurgerClick, false);
+      this.cogButton.addEventListener('click', this.onCogClick, false);
       this.closeButton.addEventListener('click', this.onCloseClick, false);
       this.backButton.addEventListener('click', this.onBackClick, false);
 
@@ -32,18 +32,18 @@ $().ready(function($) {
     }
   }
 
-  MobileNavigationManager.prototype.onResize = function(e) {
+  MobileSidebarManager.prototype.onResize = function(e) {
     var currentWidth = e.currentTarget.innerWidth;
     if (this.navigationOpen && currentWidth >= 1200) this.close();
   }
 
-  MobileNavigationManager.prototype.onCategoryClick = function(e) {
+  MobileSidebarManager.prototype.onCategoryClick = function(e) {
     var category = e.currentTarget.dataset.category;
     e.preventDefault();
     this.openCategory(category);
   }
 
-  MobileNavigationManager.prototype.onBurgerClick = function() {
+  MobileSidebarManager.prototype.onCogClick = function() {
     if (this.navigationOpen) {
       this.close();
     } else {
@@ -51,30 +51,30 @@ $().ready(function($) {
     }
   };
 
-  MobileNavigationManager.prototype.onCloseClick = function() {
+  MobileSidebarManager.prototype.onCloseClick = function() {
     this.close();
     setTimeout(this.closeAllCategories, 500);
   };
 
-  MobileNavigationManager.prototype.onBackClick = function() {
+  MobileSidebarManager.prototype.onBackClick = function() {
     this.closeCurrentCategory();
   };
 
-  MobileNavigationManager.prototype.open = function() {
+  MobileSidebarManager.prototype.open = function() {
     this.navigationOpen = true;
-    this.mobileNavigation.classList.add('shown');
+    this.mobileSidebar.classList.add('shown');
     document.body.style.overflow = "hidden";
     this.overlay.classList.add('shown');
   }
 
-  MobileNavigationManager.prototype.close = function() {
+  MobileSidebarManager.prototype.close = function() {
     this.navigationOpen = false;
-    this.mobileNavigation.classList.remove('shown');
+    this.mobileSidebar.classList.remove('shown');
     document.body.style.overflow = "";
     this.overlay.classList.remove('shown');
   }
 
-  MobileNavigationManager.prototype.openCategory = function(category) {
+  MobileSidebarManager.prototype.openCategory = function(category) {
     this.openedCategories.push(category);
     var subList = document.querySelector('ul[data-category=' + category + ']');
     if (subList) {
@@ -86,7 +86,7 @@ $().ready(function($) {
     return false;
   }
 
-  MobileNavigationManager.prototype.closeCurrentCategory = function() {
+  MobileSidebarManager.prototype.closeCurrentCategory = function() {
     var category = this.openedCategories.pop();
     var subList = document.querySelector('ul[data-category=' + category + ']');
     if (subList) {
@@ -99,14 +99,14 @@ $().ready(function($) {
     return false;
   }
 
-  MobileNavigationManager.prototype.closeCategory = function(category) {
+  MobileSidebarManager.prototype.closeCategory = function(category) {
     var subList = document.querySelector('ul[data-category=' + category + ']');
     subList.style.transition = 'none';
     subList.classList.remove('shown');
     setTimeout(function(){ subList.style.transition = ''; }, 500);
   }
 
-  MobileNavigationManager.prototype.closeAllCategories = function() {
+  MobileSidebarManager.prototype.closeAllCategories = function() {
     var openedCategories = this.openedCategories;
     if (openedCategories.length === 1) return false;
     for (var i = openedCategories.length - 1; i > 0; i--) {
@@ -117,5 +117,5 @@ $().ready(function($) {
     this.backButton.classList.remove('shown');
   }
 
-  new MobileNavigationManager();
+  new MobileSidebarManager();
 })
