@@ -34,7 +34,7 @@ $().ready(function($) {
 
   MobileNavigationManager.prototype.onResize = function(e) {
     var currentWidth = e.currentTarget.innerWidth;
-    if (this.navigationOpen && currentWidth >= 1200) this.close();
+    if (this.navigationOpen && currentWidth >= 768) this.close();
   }
 
   MobileNavigationManager.prototype.onCategoryClick = function(e) {

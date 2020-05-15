@@ -3,21 +3,21 @@
     <%= category %>
   </li>
   <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-  	<%= link_to Spree.t(:products, scope: [:admin, :tab]), spree.admin_products_path, class: 'w-75' if can?(:admin, Spree::Product) %>
+  	<%= link_to Spree.t(:products, scope: [:admin, :tab]), spree.admin_products_path, class: 'w-100' if can?(:admin, Spree::Product) %>
   </li>
   <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-  	<%= link_to Spree.t(:option_types, scope: [:admin, :tab]), spree.admin_option_types_path, class: 'w-75' if can?(:admin, Spree::OptionType) %>
+  	<%= link_to Spree.t(:option_types, scope: [:admin, :tab]), spree.admin_option_types_path, class: 'w-100' if can?(:admin, Spree::OptionType) %>
   </li>
   <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-  	<%= link_to Spree.t(:properties, scope: [:admin, :tab]), spree.admin_properties_path, class: 'w-75' if can?(:admin, Spree::Property) %>
+  	<%= link_to Spree.t(:properties, scope: [:admin, :tab]), spree.admin_properties_path, class: 'w-100' if can?(:admin, Spree::Property) %>
   </li>
   <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-  	<%= link_to Spree.t(:prototypes, scope: [:admin, :tab]), spree.admin_prototypes_path, class: 'w-75' if can?(:admin, Spree::Prototype) %>
+  	<%= link_to Spree.t(:prototypes, scope: [:admin, :tab]), spree.admin_prototypes_path, class: 'w-100' if can?(:admin, Spree::Prototype) %>
   </li>
   <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-  	<%= link_to Spree.t(:taxonomies, scope: [:admin, :tab]), spree.admin_taxonomies_path, class: 'w-75' if can?(:admin, Spree::Taxonomy) %>
+  	<%= link_to Spree.t(:taxonomies, scope: [:admin, :tab]), spree.admin_taxonomies_path, class: 'w-100' if can?(:admin, Spree::Taxonomy) %>
   </li>
   <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-  	<%= link_to Spree.t(:taxons, scope: [:admin, :tab]), spree.admin_taxons_path, class: 'w-75' if can?(:admin, Spree::Taxon) %>
+  	<%= link_to Spree.t(:taxons, scope: [:admin, :tab]), spree.admin_taxons_path, class: 'w-100' if can?(:admin, Spree::Taxon) %>
   </li>
 </ul>

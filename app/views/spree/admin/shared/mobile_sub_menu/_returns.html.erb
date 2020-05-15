@@ -3,9 +3,9 @@
     <%= category %>
   </li>
   <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-  	<%= link_to Spree.t(:return_authorizations, scope: [:admin, :tab]), spree.admin_return_authorizations_path, class: 'w-75' if can?(:admin, Spree::ReturnAuthorization) %>
+  	<%= link_to Spree.t(:return_authorizations, scope: [:admin, :tab]), spree.admin_return_authorizations_path, class: 'w-100' if can?(:admin, Spree::ReturnAuthorization) %>
   </li>
   <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-  	<%= link_to Spree.t(:customer_returns, scope: [:admin, :tab]), spree.admin_customer_returns_path, class: 'w-75' if can?(:admin, Spree::ReturnAuthorization) %>
+  	<%= link_to Spree.t(:customer_returns, scope: [:admin, :tab]), spree.admin_customer_returns_path, class: 'w-100' if can?(:admin, Spree::ReturnAuthorization) %>
   </li>
 </ul>

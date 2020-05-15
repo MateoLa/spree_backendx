@@ -16,6 +16,8 @@
     transform: translate(0);
   }
   ul {
+    display: block;
+    height: 100vh;
     margin: 0;
     overflow-y: auto;
     overflow-x: hidden;
@@ -25,6 +27,7 @@
       padding-top: $spree-header-tablet-height;
     }    
     li {
+      margin: 0;
       padding: 8px 0;
       border-bottom: 1px solid $global-border-style;
       @include media-breakpoint-up(sm) {
