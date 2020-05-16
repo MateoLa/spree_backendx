@@ -2,10 +2,14 @@
   <li class="text-center font-weight-bold mobile-navigation-sublist-header">
     <%= category %>
   </li>
-  <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-  	<%= link_to Spree.t(:promotions, scope: [:admin, :tab]), spree.admin_promotions_path, class: 'w-100' if can?(:admin, Spree::Promotion) %>
-  </li>
-  <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
-  	<%= link_to Spree.t(:promotion_categories, scope: [:admin, :tab]), spree.admin_promotion_categories_path, class: 'w-100' if can?(:admin, Spree::PromotionCategory) %>
-  </li>
+  <% if can? :admin, Spree::Promotion %>
+	  <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
+  		<%= link_to Spree.t(:promotions, scope: [:admin, :tab]), spree.admin_promotions_path, class: 'w-100' %>
+  	</li>
+  <% end %>
+  <% if can? :admin, Spree::PromotionCategory %>
+	  <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
+  		<%= link_to Spree.t(:promotion_categories, scope: [:admin, :tab]), spree.admin_promotion_categories_path, class: 'w-100' %>
+  	</li>
+  <% end %>
 </ul>
