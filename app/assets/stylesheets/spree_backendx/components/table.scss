@@ -14,6 +14,7 @@ table.table {
   }
 
   tr {
+    position: relative;
     border-bottom: 1px solid $global-border-style;
     @include media-breakpoint-down(md) {
       &:last-child {
@@ -44,6 +45,9 @@ table.table {
         border: none;
         padding: 0 0.75rem;
       }
+      td:nth-last-child(2):first-child[colspan] {
+        width: 100%;
+      }
       &.is-hidden {
         display: none;
       }
@@ -52,9 +56,12 @@ table.table {
     .actions {
       position: absolute;
       right: 0px;
+      top: 50%;
+      transform: translateY(-50%);
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      width: auto;
     }
 
     .actions a, button {

@@ -1,28 +1,24 @@
 # SpreeBackendx
-Short description and motivation.
 
-## Usage
-How to use my plugin.
+Spree Backendx spreads the new Spree UX frontend styles to the backend.
+RoR extension for Spree 4.1 ready
 
 ## Installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'spree_backendx'
+gem 'spree_backendx', github: 'MateoLa/spree_backendx'
+
 ```
 
 And then execute:
 ```bash
-$ bundle
+$ bundle install
 ```
 
-Or install it yourself as:
-```bash
-$ gem install spree_backendx
+```ruby
+$ bundle exec rails g spree_backendx:install
 ```
-
-## Contributing
-Contribution directions go here.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
