@@ -7,6 +7,16 @@ body {
   padding: $spacer ($spacer * 2);
 }
 
+.sidebar {
+  height: calc(100vh - #{$spree-header-mobile-height}) !important;
+  @include media-breakpoint-up(sm) {
+    height: calc(100vh - #{$spree-header-tablet-height}) !important;
+  }
+  @include media-breakpoint-up(xl) {
+    height: calc(100vh - #{$spree-header-desktop-height}) !important;
+  }
+}
+
 .sidebar-minimized #admin-main-part {
   padding: $spacer ($spacer * 2);
   @include media-breakpoint-up(md) {
