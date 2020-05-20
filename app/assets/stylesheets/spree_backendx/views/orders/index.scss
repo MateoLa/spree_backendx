@@ -18,7 +18,6 @@
   }
 
   @include media-breakpoint-between(xs, md) {
-    thead,
     .order-risk,
     .order-state,
     .order-payment-state,

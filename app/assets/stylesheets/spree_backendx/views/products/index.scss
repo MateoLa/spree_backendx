@@ -1,0 +1,25 @@
+#listing_products {
+  font-size: font-px-to-rem(16px);
+
+  .status {
+    order: 3;
+  }
+
+  .image {
+    order: 1;
+  }    
+
+  .name {
+    order: 2;
+  }
+
+  .price {
+    order: 4;
+  }
+
+  @include media-breakpoint-between(xs, md) {
+    .sku {
+      display: none;
+    }
+  }
+}
