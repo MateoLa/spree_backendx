@@ -50,7 +50,7 @@
           <%#-------------------------------------------------%>
           <%= render partial: 'spree/admin/shared/content_header' %>
 
-          <div class="row position-relative">
+          <div class="row">
             <%#-------------------------------------------------%>
             <%# Alerts                                          %>
             <%#-------------------------------------------------%>
@@ -59,7 +59,7 @@
             <%#-------------------------------------------------%>
             <%# Main content                                    %>
             <%#-------------------------------------------------%>
-            <div class="col-12 <%= 'with-sidebar col-md-9' if content_for?(:sidebar) %>" id="content" data-hook>
+            <div class="<%= content_for?(:sidebar) ? 'with-sidebar col-md-9' : 'col-12'  %>" id="content" data-hook>
               <%#= render partial: 'spree/admin/shared/table_filter' if content_for?(:table_filter)%>
               <%= yield %>
             </div>
@@ -68,11 +68,12 @@
             <%# Inner aside                                     %>
             <%#-------------------------------------------------%>
             <% if content_for?(:sidebar) %>
-              <div class="d-none d-md-flex col-4 col-md-3" id="sidebar-cols">
+              <div class="d-none d-md-flex col-1 col-md-3" id="sidebar-cols">
                 <%= render partial: 'spree/admin/shared/sidebar' %>
               </div>
             <% end %>
           </div>
+
 
         </main>
       </div>

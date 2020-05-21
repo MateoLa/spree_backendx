@@ -24,12 +24,6 @@ body {
   }
 }
 
-#admin-main-part.sidebar-minimized #content {
-  @include media-breakpoint-up(md) {
-    padding-right: $spacer * 5;
-  }
-}
-
 #admin-table-filter {
   padding: 0 ($spacer * 2);
 }

@@ -17,6 +17,10 @@
     order: 4;
   }
 
+  td:not(.order-date):not(.order-number):not(.order-shipment-state):not(.order-total) {
+    order: 10;
+  }
+
   @include media-breakpoint-between(xs, md) {
     .order-risk,
     .order-state,

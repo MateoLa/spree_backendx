@@ -17,6 +17,10 @@
     order: 4;
   }
 
+  td:not(.status):not(.image):not(.name):not(.price) {
+    order: 10;
+  }
+
   @include media-breakpoint-between(xs, md) {
     .sku {
       display: none;

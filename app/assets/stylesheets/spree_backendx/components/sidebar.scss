@@ -1,13 +1,9 @@
-#sidebar-cols {
-  position: absolute;
-  top: 0;
-  right: 0;
-  white-space: nowrap;
+.main-right-sidebar {
+  width: 100%;
 }
 
-#admin-main-part.sidebar-minimized #sidebar-cols {
+#admin-main-part.sidebar-minimized .main-right-sidebar {
   width: auto;
-  overflow: visible;
 
   li {
     &:hover, &.menu-active {
@@ -15,7 +11,7 @@
     }
   }
 
-  .icon-link, [data-toggle="collapse"] {
+  .icon-link {
     text-align: center;
 
     .icon {
@@ -26,9 +22,5 @@
     .text {
       display: none;
     }
-  }
-
-  ul.collapse.in {
-    display: none;
   }
 }
