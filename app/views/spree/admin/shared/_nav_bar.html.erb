@@ -4,12 +4,12 @@
       <div class="navbar-right-search-menu">
         <button type="button" class="navbar-right-dropdown-toggle search-icons" aria-label="<%= Spree.t('nav_bar.show_search')%>">
           <%= icon(name: 'magnifying-glass',
-                   classes: 'd-none d-xl-inline-block',
+                   classes: 'd-none d-md-inline-block',
                    width: 36,
                    height: 36) %>
 
           <%= icon(name: 'magnifying-glass',
-                   classes: 'd-xl-none',
+                   classes: 'd-md-none',
                    width: 24,
                    height: 24) %>
         </button>
@@ -45,17 +45,20 @@
     <li>
       <div class="dropdown navbar-right-dropdown">
         <button id="store-button" type="button" data-toggle="dropdown" class="navbar-right-dropdown-toggle" aria-label="<%= Spree.t('nav_bar.show_user_menu')%>">
-          <%= icon(name: 'spree_backendx/shop-2',
+          <%= icon(name: 'person',
                   classes: 'd-none d-md-inline-block',
                   width: 36,
                   height: 36) %>
-          <%= icon(name: 'spree_backendx/shop-2',
+          <%= icon(name: 'person',
                   classes: 'd-md-none',
                   width: 27,
                   height: 27) %>
+          <span class="d-none d-xl-inline-block">
+            <%= try_spree_current_user.email %>
+          </span>
         </button>
 
-        <div id="admin-account-nav-links" class="dropdown-menu dropdown-menu-right">
+        <div>
           <%= render partial: "spree/admin/shared/account_nav" %>
         </div>
       </div>

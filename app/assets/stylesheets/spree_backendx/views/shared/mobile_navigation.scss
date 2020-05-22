@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 16;
-  background-color: theme-color("light-background");
+  background-color: $primary-background;
   font-size: font-px-to-rem(18px);
   font-weight: 600;
   transform: translate(-100%);
