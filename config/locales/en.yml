@@ -1,0 +1,6 @@
+en:
+  spree:
+    action_delete_popup:
+      delete_button: yes, delete
+      delete_text: Do you really want <br /> to delete this
+      delete_title: Are you sure?

@@ -18,7 +18,7 @@ module Spree::Admin::BaseControllerDecorator
     else
       'col-12 col-md-10 offset-md-2'
     end
-  end  
+  end
 
 end
 

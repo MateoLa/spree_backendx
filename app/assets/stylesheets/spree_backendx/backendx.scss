@@ -2,7 +2,7 @@
 @import "spree/frontend/variables/bootstrap-overrides";
 
 // Import only needed bootstrap functions, variables and mixins
-// This way we avoid importing bootstrap CSS again to not crash Spree Styling
+// In this way we avoid importing bootstrap CSS again to not crash Spree Stylings
 @import "bootstrap/functions";
 @import "bootstrap/variables";
 @import "bootstrap/mixins/breakpoints";
@@ -10,7 +10,6 @@
 @import "spree/frontend/functions";
 
 @import "spree_backendx/views/icon";
-@import "spree_backendx/views/layouts/admin";
 @import "spree_backendx/views/shared/header";
 @import "spree_backendx/views/shared/nav_bar";
 @import "spree_backendx/views/shared/mobile_navigation";
@@ -24,6 +23,8 @@
 @import "spree_backendx/views/orders/shipment";
 @import "spree_backendx/views/products/index";
 
+@import "spree_backendx/views/layouts/admin";
+@import "spree_backendx/views/layouts/action_delete_popup";
 
 .sidebar {
 	margin-top: 0;

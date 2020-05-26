@@ -1,0 +1,27 @@
+<div class="mx-auto action-delete-popup">
+  <div class="d-flex action-delete-popup-icon js-action-delete-popup-close-button">
+    <%= inline_svg_tag "close.svg", class: "w-100 h-100" %>
+  </div>
+
+  <p class="action-delete-popup-header">
+    <%= Spree.t("action_delete_popup.delete_title") %>
+  </p>
+
+  <p class="action-delete-popup-text">
+    <%= Spree.t("action_delete_popup.delete_text").html_safe %>
+    <span class="js-popup-resource"></span>?
+  </p>
+
+  <div class="d-flex action-delete-popup-buttons">
+    <div class="btn bg-light-background border-2 text-uppercase font-weight-bold action-delete-popup-button js-action-delete-popup-close-button"><%= Spree.t(:cancel) %></div>
+    <a
+      id="action-delete-popup-confirm"
+      class="btn btn-primary text-uppercase font-weight-bold action-delete-popup-button"
+      data-method="delete"
+      rel="nofollow"
+      href="#"
+    >
+      <%= Spree.t("action_delete_popup.delete_button") %>
+    </a>
+  </div>
+</div>
