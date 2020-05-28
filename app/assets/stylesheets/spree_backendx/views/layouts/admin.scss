@@ -1,5 +1,9 @@
 body {
   background: #ffffff;
+
+  .tooltip {
+    z-index: 0;
+  }
 }
 
 #admin-main-part {

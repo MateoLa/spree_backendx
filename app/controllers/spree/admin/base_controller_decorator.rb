@@ -1,4 +1,5 @@
 module Spree::Admin::BaseControllerDecorator
+
   def self.prepended(base)
     base.helper_method :main_part_classes    
     base.helper_method :filter_classes
