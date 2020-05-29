@@ -1,6 +1,6 @@
 Spree::Admin::NavigationHelper.class_eval do
 
-  def link_to_delete(resource, options = {})
+	def link_to_delete(resource, options = {})
     url = options[:url] || object_url(resource)
     name = options[:name] || Spree.t(:delete)
     options[:class] = 'btn btn-danger btn-sm js-delete-button'

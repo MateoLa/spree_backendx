@@ -1,3 +1,8 @@
+#
+# This is a workorround that allows our link_to_delete to be used
+# in those places where link_to_with_icon has been used to delete stuffs
+#
+
 Deface::Override.new(
     virtual_path: 'spree/admin/orders/_shipment_manifest',
     name: 'allow_use_of_js_delete_popup_by_link_to_delete',
