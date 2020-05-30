@@ -1,7 +1,4 @@
-# With Zeitwerk the only way to use this kind of module (using class_eval)
-# is to exclude them in "/lib/engine_name.rb" and load them manually. 
-
-Spree::Admin::NavigationHelper.class_eval do
+Spree::Admin::NavigationHelper.module_eval do
 
 	def link_to_delete(resource, options = {})
     url = options[:url] || object_url(resource)
